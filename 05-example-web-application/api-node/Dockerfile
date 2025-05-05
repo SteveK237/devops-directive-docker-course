@@ -2,3 +2,7 @@
 FROM ubuntu
 
 RUN apt update && apt install nodejs -y
+
+COPY . .
+
+RUN npm install
