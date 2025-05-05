@@ -1,10 +1,22 @@
 # test build
-FROM node:19.6-alpine
+FROM node
+
+WORKDIR /usr/src/docker
+
+ENV NODE_ENV=production
 
 RUN apt update && apt install nodejs npm -y
 
-COPY . .
+COPY package*.json ./
 
-RUN npm install
+RUN --mount=type=cache,target=/usr/src/docker/.npm \
+  npm set cache /usr/src/docker/.npm && \
+  npm ci --only=production
 
-CMD [ "npm", "run", "dev" ]
+USER node
+
+COPY --chown=node:node ./src .
+
+EXPOSE 3000
+
+CMD [ "node", "index.js" ]
