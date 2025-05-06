@@ -13,7 +13,7 @@ COPY . .
 RUN npm run build
 
 ## stage
-FROM nginx:1.22-alpine
+FROM nginxinc/nginx-unprivleged:1.23-alpine-perl
 
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
