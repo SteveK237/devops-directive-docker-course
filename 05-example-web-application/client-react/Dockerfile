@@ -19,4 +19,5 @@ COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 COPY --from=build usr/src/app/dist/ /usr/share/nginx/html
 
-EXPOSE 80
+# unpriv can't bind any port <1024
+EXPOSE 8080
