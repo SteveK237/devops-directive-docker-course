@@ -18,8 +18,8 @@ push-dockerhub:
 # https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry#authenticating-to-the-container-registry
 .PHONY: push-github-packages
 push-github-packages:
-	docker tag my-scratch-image ghcr.io/stevekauffman/my-scratch-image # defaults to latest
-	docker push ghcr.io/stevekauffman/my-scratch-image
+	docker tag my-scratch-image ghcr.io/stevek237/my-scratch-image # defaults to latest
+	docker push ghcr.io/stevek237/my-scratch-image
 
-	docker tag my-scratch-image ghcr.io/stevekauffman/my-scratch-image:abc-123
-	docker push ghcr.io/stevekauffman/my-scratch-image:abc-123
+	docker tag my-scratch-image ghcr.io/stevek237/my-scratch-image:abc-123
+	docker push ghcr.io/stevek237/my-scratch-image:abc-123
