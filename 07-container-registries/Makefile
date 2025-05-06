@@ -1,6 +1,8 @@
 .PHONY: build
 build:
-	docker build --tag my-scratch-image .
+    echo "FROM scratch" > Dockerfile
+	docker build --tag steve-scratch-image .
+	-rm Dockerfile
 
 # Have to authenticate to dockerhub and create repo first:
 # https://docs.docker.com/engine/reference/commandline/login/
